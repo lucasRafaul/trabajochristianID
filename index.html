@@ -33,6 +33,15 @@
 
         function agarrarInput(){
             let valor = document.getElementById('inputValor').value
+            try{
+                if(valor != Number(valor)){
+                throw new Error('La busqueda Ingresada es o contiene un Numero Invalido')
+                }
+            }
+            catch(error){
+                console.error('Error: ', error.message)
+            }
+
             alert('Buscando: ' + valor)
         }
 
@@ -53,6 +62,51 @@
         function facebook(){
             alert("Siguenos En Facebook Porfa!")
         }
+
+        //TAREA NRO 2 actualizacion
+
+        function noExiste(){
+            try{
+                let documento = document.getElementById('jajajajaj')
+                if(!documento){
+                    throw new Error('Este elemento no existe')
+                }
+            }
+            catch(error){
+                console.error('Error: ', error.message)
+            }
+        }
+        noExiste()
+
+        function funcionNoExiste(){
+            try{
+                if(!funcionInventada()){
+                    throw new Error('La funcion consultada no existe')
+                }
+            }
+            catch(error){
+                console.error('Error: ', error.message)
+            }
+        }
+
+        function division(){
+            let nro1 = parseInt(prompt('Dame un numero que no sea 0'))
+            let nro2 = parseInt(prompt('Dame otro numero'))
+            try{
+                if(nro1 == 0){
+                throw new Error('No se puede divir con un divisor 0')
+                }else{
+                    let resultado = nro1 / nro2
+                    alert(`Resultado: ${resultado}`)
+                }
+            }
+            catch(error){
+                console.error('Error: ', error.message)
+            }
+
+
+        }
+        
     </script>
     <!--Menu superior-->
     <section class="bienvenidos">
@@ -127,14 +181,14 @@
                     <!--Efectos wow de acercamiento-->
                     <li class="wow zoomIn" data-wow-duration=".3s" data-wow-delay=".3s">
                         <i class="fa fa-briefcase" aria-hidden="true"></i>
-                        <div class="contenedor-eleccion">
+                        <div class="contenedor-eleccion" onclick="division()">
                             <h4>Aplicaciones para la nube</h4>
                             <p class="d-none d-lg-flex">Para empresa que requiera ampliar sus plataformas de gestión.</p>
                         </div>
                     </li>
                     <li class="wow zoomIn" data-wow-duration=".3s" data-wow-delay=".5">
                         <i class="fa fa-bullhorn" aria-hidden="true"></i>
-                        <div class="contenedor-eleccion">
+                        <div class="contenedor-eleccion" onclick="funcionNoExiste()">
                             <h4>Fábrica de software</h4>
                             <p class="d-none d-lg-flex">Servicios de mejora correctiva y evolutiva para sus aplicaciones.</p>
                         </div>
